@@ -1,0 +1,7 @@
+{
+  "name": "foo-timebomb",
+  "version": "0.0.2",
+  "dependencies": [
+    "foobar2000-sdk"
+  ]
+}
