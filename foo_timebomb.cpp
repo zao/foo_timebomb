@@ -1,5 +1,7 @@
 #include <SDK/foobar2000.h>
+#include <helpers/DarkMode.h>
 
+#include <optional>
 #include <string>
 #include <thread>
 
@@ -118,6 +120,8 @@ class window_tutorial1
 
     inline operator HWND() { return m_hWnd; }
     BOOL is_window() { return ::IsWindow(m_hWnd); }
+
+    std::unique_ptr<fb2k::CDarkModeHooks> dark_hooks;
 };
 
 static window_tutorial1 g_wnd;
@@ -144,6 +148,7 @@ HWND
 window_tutorial1::create(HWND p_hWndParent)
 {
     assert(m_hWnd == NULL);
+    dark_hooks = std::make_unique<fb2k::CDarkModeHooks>();
 
     if (g_refcount == 0) {
         // set up a unique class name to avoid clashes with other tutorial steps
@@ -281,6 +286,7 @@ window_tutorial1::process_message(UINT msg, WPARAM wParam, LPARAM lParam)
                             0,
                             0);
             SetDlgItemInt(*this, EDT_DURATION, cfg_timebomb_duration, FALSE);
+            dark_hooks->AddDialogWithControls(*this);
         } break;
 
         case WM_DESTROY: {

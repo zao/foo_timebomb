@@ -21,6 +21,7 @@ target_link_libraries(foo_timebomb PRIVATE
     "shlwapi"
     unofficial::foobar2000-sdk::foobar2000_component_client
     unofficial::foobar2000-sdk::helpers
+    unofficial::foobar2000-sdk::libPPUI
     unofficial::foobar2000-sdk::pfc
     unofficial::foobar2000-sdk::SDK
     unofficial::foobar2000-sdk::shared
