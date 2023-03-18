@@ -383,4 +383,4 @@ tb_commands::execute(t_uint32 p_index, service_ptr_t<service_base> foo)
 
 static mainmenu_commands_factory_t<tb_commands> tbcmds;
 
-DECLARE_COMPONENT_VERSION("Timebomb", "0.0.3", "Zao");
+DECLARE_COMPONENT_VERSION("Timebomb", "0.0.4", "Zao");
